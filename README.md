@@ -18,15 +18,29 @@ If you need to add additional processing steps, all actions performed are called
 
 
 Configuring for sourcetree is as follows:
+(Note: The asterics must be escaped by preceeding them with a backslash.)
 
 - Difftool: Custom
 - Path: C:\viscc\vidiff.exe
-- Args: \"$LOCAL\" \"$REMOTE\"
+- Args: \"$LOCAL\" \"$REMOTE\"	<< to diff against the previous commit of the file, if any in this Pull Request, else against master
+- Args: \"$LOCAL\" \"$MERGED\"	<< to diff against master
 
 - Mergetool: Custom
 - Path: C:\viscc\vimerge.exe
 - Args: \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
 
+
 Additional args:
 -lv or -version specifies the labview version to use
-You can also use any of the standard lvdiff commands as of this revision.
+-lvpath specified the path to the labview exe
+
+You can also use any of the standard lvdiff commands as of this revision:
+-noattr
+-nofp
+-nofppos
+-nobd
+-nobdcosm
+-nobdpos
+
+
+
